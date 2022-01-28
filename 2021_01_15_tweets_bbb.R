@@ -143,5 +143,7 @@ comparacao_duas_datas <- combinado_ultimos_dois %>%
 comparacao_duas_datas
 ggsave(paste0(Sys.Date(), sep = "_", "comparacao_duas_datas.jpeg"),comparacao_duas_datas, device = "jpeg",path =file.path(getwd(), "BBB"))
 
-mensagem <- paste0("Atualização da ")
-rtweet::post_message()
+mensagem <- paste0("Atualização dos dados da análise de sentimentos do BBB dia", sep= ", ", Sys.Date(), sep = ".", "#bbb, #rstats, #bbb22, #dataviz. Essa é uma atualização automática. Cortesia do pacore rtweet.")
+imagem <- paste0(Sys.Date(), sep = "_", "polaridade_bbb.jpeg")
+
+rtweet::post_tweet(mensagem, media = file.path(getwd(), "BBB", imagem))
